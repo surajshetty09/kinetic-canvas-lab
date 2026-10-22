@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Three interactive generative-art systems for curious hands."
+    />
+    <meta name="theme-color" content="#08090d" />
+    <title>Kinetic Canvas Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Kinetic Canvas Lab home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>KINETIC CANVAS</span>
+      </a>
+      <div class="topbar-note">GENERATIVE SYSTEMS / 001—003</div>
+      <a class="source-link" href="https://github.com/surajshetty09/kinetic-canvas-lab">
+        SOURCE <span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main>
+      <aside class="scene-nav" aria-label="Choose an artwork">
+        <div class="scene-nav-label">SELECT A SYSTEM</div>
+        <button class="scene-option is-active" data-scene="nebula" aria-pressed="true">
+          <span class="scene-number">001</span>
+          <span>
+            <strong>Field Notes</strong>
+            <small>Flow study</small>
+          </span>
+          <span class="scene-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="scene-option" data-scene="ribbons" aria-pressed="false">
+          <span class="scene-number">002</span>
+          <span>
+            <strong>Soft Signal</strong>
+            <small>Wave study</small>
+          </span>
+          <span class="scene-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="scene-option" data-scene="orbit" aria-pressed="false">
+          <span class="scene-number">003</span>
+          <span>
+            <strong>Orbit Garden</strong>
+            <small>Gravity study</small>
+          </span>
+          <span class="scene-arrow" aria-hidden="true">→</span>
+        </button>
+
+        <div class="coordinates" aria-hidden="true">
+          <span>12.9716° N</span>
+          <span>74.8560° E</span>
+        </div>
+      </aside>
+
+      <section class="stage" aria-label="Interactive generative artwork">
+        <canvas id="art-canvas"></canvas>
+        <div class="stage-vignette" aria-hidden="true"></div>
+
+        <div class="stage-index" aria-hidden="true">
+          <span id="stage-index">001</span>
+          <span class="stage-line"></span>
+          <span>003</span>
+        </div>
+
+        <section class="scene-copy" aria-live="polite">
+          <div class="eyebrow" id="scene-eyebrow">FLOW STUDY / 001</div>
+          <h1 id="scene-title">Field<br />Notes</h1>
+          <p id="scene-description">
+            A living map of invisible currents. Move slowly to bend the field;
+            move fast to leave a scar of light.
+          </p>
+        </section>
+
+        <div class="interaction-hint" id="interaction-hint">
+          <span class="hint-icon" aria-hidden="true"></span>
+          <span>MOVE TO DISTURB THE FIELD</span>
+        </div>
+      </section>
+
+      <aside class="control-panel" aria-label="Artwork controls">
+        <div class="status-row">
+          <span class="status-dot"></span>
+          <span id="status-text">SYSTEM RUNNING</span>
+        </div>
+
+        <div class="control-group">
+          <label for="intensity">ENERGY</label>
+          <div class="range-wrap">
+            <input id="intensity" type="range" min="20" max="100" value="68" />
+            <output id="intensity-output" for="intensity">68</output>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <span class="control-label">PALETTE</span>
+          <div class="palette-picker" role="group" aria-label="Color palette">
+            <button class="palette is-active" data-palette="acid" aria-label="Acid palette" aria-pressed="true">
+              <span style="--swatch: #efff8a"></span><span style="--swatch: #a48cff"></span>
+            </button>
+            <button class="palette" data-palette="ember" aria-label="Ember palette" aria-pressed="false">
+              <span style="--swatch: #ffcf70"></span><span style="--swatch: #ff5e7d"></span>
+            </button>
+            <button class="palette" data-palette="ice" aria-label="Ice palette" aria-pressed="false">
+              <span style="--swatch: #a5fff4"></span><span style="--swatch: #4f8cff"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="pause-button" class="action-button">
+            <span>PAUSE</span><kbd>SPACE</kbd>
+          </button>
+          <button id="reset-button" class="action-button">
+            <span>RESET</span><kbd>R</kbd>
+          </button>
+          <button id="save-button" class="action-button action-button--primary">
+            <span>SAVE FRAME</span><kbd>S</kbd>
+          </button>
+        </div>
+
+        <p class="edition">A SMALL EXPERIMENT IN CONTROLLED CHAOS.<br />BUILT FOR THE OPEN WEB.</p>
+      </aside>
+    </main>
+
+    <footer>
+      <span>NO LIBRARIES. NO TRACKING. JUST MATH.</span>
+      <span>© <span id="year"></span> / SURAJ SHETTY</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
